@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit your product!</title>
+</head>
+
+<body>
+    <h1>Edit <%= product.name %>! </h1>
+
+    <body>
+        <form action="/products/<%=product._id%>?_method=PUT" method="post">
+
+            <label for="name">Enter a new product name:</label>
+            <input type="text" name="name" id="name" value="<%=product.name%>">
+
+            <label for="price">Enter new price:</label>
+            <input type="number" step="0.01" name="price" id="price" value="<%=product.price%>">
+
+            <select name="category" id="category">
+                <option value="vegetable" <%=product.category==="vegetable" ? "selected" : "" %> >vegetable</option>
+                <!--TERNARY OPERATOR!-->
+                <option value="fruit" <%=product.category==="fruit" ? "selected" : "" %>>fruit</option>
+                <option value="dairy" <%=product.category==="dairy" ? "selected" : "" %>>dairy</option>
+            </select>
+
+            <button>Edit</button>
+        </form>
+        <form action="/products/<%= product.id %>?_method=DELETE" method="post">
+            <button>Delete !!!!!</button>
+        </form>
+        <a href="/products">Back to view products</a>
+    </body>
+
+</html>
